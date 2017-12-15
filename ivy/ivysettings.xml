@@ -33,6 +33,9 @@ under the License.
   -->
   <property name="repo.maven.org" value="http://repo1.maven.org/maven2/"
       override="false"/>
+  <property name="release.apache.org"
+      value="https://repository.apache.org/content/repositories/releases/"
+      override="false"/>    
   <property name="snapshot.apache.org"
       value="https://repository.apache.org/content/repositories/snapshots/"
       override="false"/>
@@ -45,6 +48,9 @@ under the License.
   <property name="www.datanucleus.org"
       value="http://www.datanucleus.org/downloads/maven2/"
       override="false"/>
+   <property name="conjars.releases"
+             value="http://conjars.org/repo/"
+             override="false"/>
   <property name="maven2.pattern"
       value="[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier])"/>
   <property name="repo.dir" value="${user.home}/.m2/repository"/>
@@ -63,7 +69,8 @@ under the License.
         m2compatible="true" checkmodified="true" changingPattern=".*SNAPSHOT"/>
     <ibiblio name="cloudera-staging" root="${staging.cloudera.com}"
         m2compatible="true" checkmodified="true" changingPattern=".*SNAPSHOT"/>
-
+      <ibiblio name="conjars-releases" root="${conjars.releases}"
+               m2compatible="true" checkmodified="true" changingPattern=".*SNAPSHOT"/>
     <filesystem name="fs" m2compatible="true">
        <artifact pattern="${repo.dir}/[organisation]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]"/>
        <ivy pattern="${repo.dir}/[organisation]/[module]/[revision]/[module]-[revision].pom"/>
@@ -76,6 +83,7 @@ under the License.
       <resolver ref="datanucleus"/>
       <resolver ref="cloudera-releases"/>
       <resolver ref="cloudera-staging"/>
+        <resolver ref="conjars-releases"/>
       <resolver ref="maven2"/>
     </chain>
 
@@ -85,6 +93,7 @@ under the License.
       <resolver ref="datanucleus"/>
       <resolver ref="cloudera-staging"/>
       <resolver ref="maven2"/>
+        <resolver ref="conjars-releases"/>
     </chain>
 
     <chain name="external">

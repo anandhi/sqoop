@@ -81,6 +81,14 @@ public class SqoopOptions
     super(conf);
   }
 
+  public String getPhoenixTable() {
+    return this.getPhoenixTable();
+  }
+
+  public String getPhoenixColumnMapping() {
+    return this.getPhoenixColumnMapping();
+  }
+
   public SqoopOptions(final String connect, final String table) {
     super(connect, table);
   }
